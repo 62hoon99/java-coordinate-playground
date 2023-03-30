@@ -28,7 +28,7 @@ public class RentCompany {
                     .append(" : ")
                     .append(
                             Math.round(
-                                    car.getDistancePerLiter()
+                                    car.getChargeQuantity()
                             )
                     )
                     .append("리터")

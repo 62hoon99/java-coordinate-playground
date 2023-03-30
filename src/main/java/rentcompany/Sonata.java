@@ -1,21 +1,18 @@
 package rentcompany;
 
-public class Sonata extends Car {
+public class Sonata implements Car {
 
     private static final Integer FUEL_EFFICIENCY = 10;
 
+    private final Distance distance;
+
     public Sonata(int distance) {
-        super(distance);
+        this.distance = new Distance(distance);
     }
 
     @Override
-    public double getDistancePerLiter() {
+    public double getChargeQuantity() {
         return distance.doubleValue() / FUEL_EFFICIENCY;
-    }
-
-    @Override
-    public double getTripDistance() {
-        return distance.doubleValue();
     }
 
     @Override

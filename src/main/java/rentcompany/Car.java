@@ -1,32 +1,9 @@
 package rentcompany;
 
-public abstract class Car {
+public interface Car {
 
-    Distance distance;
+    double getChargeQuantity();
 
-    public Car(int distance) {
-        this.distance = new Distance(distance);
-    }
+    String getName();
 
-    /**
-     * 리터당 이동 거리. 즉, 연비
-     */
-    abstract double getDistancePerLiter();
-
-    /**
-     * 여행하려는 거리
-     */
-    abstract double getTripDistance();
-
-    /**
-     * 차종의 이름
-     */
-    abstract String getName();
-
-    /**
-     * 주입해야할 연료량을 구한다.
-     */
-    double getChargeQuantity() {
-        return getTripDistance() / getDistancePerLiter();
-    }
 }
