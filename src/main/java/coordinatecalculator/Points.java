@@ -8,7 +8,14 @@ public class Points {
     private final List<Point> points;
 
     public Points(List<Integer> numbers) {
+        validateNumbers(numbers);
         points = getPointList(numbers);
+    }
+
+    private void validateNumbers(List<Integer> numbers) {
+        if (numbers.size() % 2 == 1) {
+            throw new IllegalArgumentException("올바른 좌표 값을 입력해주세요.");
+        }
     }
 
     private List<Point> getPointList(List<Integer> numbers) {

@@ -20,4 +20,11 @@ public class PointsTest {
         Assertions.assertThat(points2.getDistance())
                 .isEqualTo(0);
     }
+
+    @Test
+    public void 숫자가_홀수개면_예외_발생() throws Exception {
+        //then
+        Assertions.assertThatThrownBy(() -> new Points(Arrays.asList(1, 1, 5)))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
