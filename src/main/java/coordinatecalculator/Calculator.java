@@ -10,9 +10,14 @@ import java.util.List;
 public class Calculator {
 
     public void start() {
-        List<Integer> numbers = ValueExtractor.extractNumbers(InputView.point());
-        Points points = new Points(numbers);
-        OutputView.printAxis(points);
-        OutputView.printDistance(points.getDistance());
+        try {
+            List<Integer> numbers = ValueExtractor.extractNumbers(InputView.point());
+            Points points = new Points(numbers);
+            OutputView.printAxis(points);
+            OutputView.printDistance(points.getDistance());
+        } catch (IllegalArgumentException e) {
+            OutputView.printException(e.getMessage());
+            start();
+        }
     }
 }

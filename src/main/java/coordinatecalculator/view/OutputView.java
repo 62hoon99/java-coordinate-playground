@@ -81,4 +81,8 @@ public class OutputView {
             System.out.print("  ");
         }
     }
+
+    public static void printException(String message) {
+        System.out.println(message);
+    }
 }
