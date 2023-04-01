@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.offset;
 
@@ -26,5 +27,15 @@ public class PointsTest {
         //then
         Assertions.assertThatThrownBy(() -> new Points(Arrays.asList(1, 1, 5)))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    public void y값과_일치하는_point_리스트_반환() throws Exception {
+        //given
+        Points points1 = new Points(Arrays.asList(1, 1, 5, 5, 2, 5));
+        //when
+        List<Point> hasYPoints = points1.hasYPoints(5);
+        //then
+        Assertions.assertThat(hasYPoints.size()).isEqualTo(2);
     }
 }

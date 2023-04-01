@@ -1,6 +1,7 @@
 package coordinatecalculator.view;
 
 import coordinatecalculator.Point;
+import coordinatecalculator.Points;
 
 import java.util.List;
 import java.util.stream.Collectors;

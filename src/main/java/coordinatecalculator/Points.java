@@ -2,6 +2,7 @@ package coordinatecalculator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Points {
 
@@ -31,5 +32,11 @@ public class Points {
             return points.get(0).distanceTo(points.get(1));
         }
         return 0;
+    }
+
+    public List<Point> hasYPoints(int y) {
+        return points.stream()
+                .filter(point -> point.isYCoordinateEqual(y))
+                .collect(Collectors.toList());
     }
 }
