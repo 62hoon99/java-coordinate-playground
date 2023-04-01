@@ -31,7 +31,7 @@ public class Points {
         if (points.size() == 2) {
             return points.get(0).distanceTo(points.get(1));
         }
-        return 0;
+        return -1;
     }
 
     public List<Point> hasYPoints(int y) {

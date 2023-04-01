@@ -19,7 +19,7 @@ public class PointsTest {
         Assertions.assertThat(points1.getDistance())
                 .isEqualTo(5.656854, offset(0.00099));
         Assertions.assertThat(points2.getDistance())
-                .isEqualTo(0);
+                .isEqualTo(-1);
     }
 
     @Test
