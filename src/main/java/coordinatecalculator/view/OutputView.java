@@ -15,6 +15,10 @@ public class OutputView {
         printXAxis();
     }
 
+    public static void printDistance(double distance) {
+        System.out.printf("두 점 사이 거리는 %f\n", distance);
+    }
+
     private static void printYAxis(List<Point> points) {
         for (int i = MAX_NUMBER; i > 0; i--) {
             printBlank(i);
