@@ -16,7 +16,9 @@ public class OutputView {
     }
 
     public static void printDistance(double distance) {
-        System.out.printf("두 점 사이 거리는 %f\n", distance);
+        if (distance != -1f) {
+            System.out.printf("두 점 사이 거리는 %f\n", distance);
+        }
     }
 
     private static void printYAxis(Points points) {
