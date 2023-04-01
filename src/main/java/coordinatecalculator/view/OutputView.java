@@ -53,6 +53,7 @@ public class OutputView {
                 System.out.print(i + ROW_SPACE + ROW_SPACE);
             }
         }
+        System.out.println();
     }
 
     private static void printXAxisLine() {
