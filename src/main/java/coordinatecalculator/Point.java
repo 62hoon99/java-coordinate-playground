@@ -13,4 +13,12 @@ public class Point {
     public double distanceTo(int x, int y) {
         return Math.sqrt(Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2));
     }
+
+    public boolean isYCoordinateEqual(int y) {
+        return this.y == y;
+    }
+
+    public boolean isXCoordinateEqual(int x) {
+        return this.x == x;
+    }
 }
