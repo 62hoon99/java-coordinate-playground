@@ -2,23 +2,23 @@ package coordinatecalculator;
 
 public class Point {
 
-    private final int x;
-    private final int y;
+    private final Coordinate x;
+    private final Coordinate y;
 
     public Point(int x, int y) {
-        this.x = x;
-        this.y = y;
+        this.x = new Coordinate(x);
+        this.y = new Coordinate(y);
     }
 
     public double distanceTo(int x, int y) {
-        return Math.sqrt(Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2));
+        return Math.sqrt(Math.pow(this.x.subtractNum(x), 2) + Math.pow(this.y.subtractNum(y), 2));
     }
 
     public boolean isYCoordinateEqual(int y) {
-        return this.y == y;
+        return this.y.isNumEqual(y);
     }
 
     public boolean isXCoordinateEqual(int x) {
-        return this.x == x;
+        return this.x.isNumEqual(x);
     }
 }
