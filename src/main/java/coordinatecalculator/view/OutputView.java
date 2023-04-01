@@ -4,14 +4,13 @@ import coordinatecalculator.Point;
 import coordinatecalculator.Points;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class OutputView {
 
     private static final Integer MAX_NUMBER = 24;
     private static final String ROW_SPACE = "  ";
 
-    public static void printAxis(List<Point> points) {
+    public static void printAxis(Points points) {
         printYAxis(points);
         printXAxis();
     }
@@ -20,11 +19,11 @@ public class OutputView {
         System.out.printf("두 점 사이 거리는 %f\n", distance);
     }
 
-    private static void printYAxis(List<Point> points) {
+    private static void printYAxis(Points points) {
         for (int i = MAX_NUMBER; i > 0; i--) {
             printBlank(i);
             printNumber(i);
-            printCoordinate(getPointsOnY(points, i));
+            printCoordinate(points.hasYPoints(i));
         }
     }
 
@@ -41,12 +40,6 @@ public class OutputView {
                 .filter(point -> point.isXCoordinateEqual(i))
                 .findAny()
                 .ifPresent(point -> System.out.print("*"));
-    }
-
-    private static List<Point> getPointsOnY(List<Point> points, int i) {
-        return points.stream()
-                .filter(point -> point.isYCoordinateEqual(i))
-                .collect(Collectors.toList());
     }
 
     private static void printXAxis() {
