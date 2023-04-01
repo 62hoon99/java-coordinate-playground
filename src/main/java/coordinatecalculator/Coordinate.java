@@ -23,4 +23,8 @@ public class Coordinate {
     public double subtractNum(int num) {
         return this.num - num;
     }
+
+    public double subtractNum(Coordinate coordinate) {
+        return this.num - coordinate.num;
+    }
 }

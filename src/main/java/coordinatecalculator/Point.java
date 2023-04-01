@@ -21,4 +21,8 @@ public class Point {
     public boolean isXCoordinateEqual(int x) {
         return this.x.isNumEqual(x);
     }
+
+    public double distanceTo(Point point) {
+        return Math.sqrt(Math.pow(this.x.subtractNum(point.x), 2) + Math.pow(this.y.subtractNum(point.y), 2));
+    }
 }
