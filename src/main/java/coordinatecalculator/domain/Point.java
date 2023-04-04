@@ -1,5 +1,7 @@
 package coordinatecalculator.domain;
 
+import java.util.Objects;
+
 public class Point {
 
     private final Coordinate x;
@@ -25,4 +27,22 @@ public class Point {
     public double distanceTo(Point point) {
         return Math.sqrt(Math.pow(this.x.subtractNum(point.x), 2) + Math.pow(this.y.subtractNum(point.y), 2));
     }
+
+    public boolean isOnSameLine(Point point) {
+        return (this.x.equals(point.x) || this.y.equals(point.y)) && !(this.x.equals(point.x) && this.y.equals(point.y));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return Objects.equals(x, point.x) && Objects.equals(y, point.y);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
+
 }

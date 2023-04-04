@@ -1,5 +1,7 @@
 package coordinatecalculator.domain;
 
+import java.util.Objects;
+
 public class Coordinate {
 
     private static final int MAX_NUM = 24;
@@ -26,5 +28,18 @@ public class Coordinate {
 
     public double subtractNum(Coordinate coordinate) {
         return this.num - coordinate.num;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Coordinate that = (Coordinate) o;
+        return num == that.num;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(num);
     }
 }
