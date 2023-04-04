@@ -38,4 +38,13 @@ public class PointsTest {
         //then
         Assertions.assertThat(hasYPoints.size()).isEqualTo(2);
     }
+    /*
+    @Test
+    public void 좌표값_네_개_입력한_경우_넓이_계산() throws Exception {
+        //given
+        Points points = new Points(Arrays.asList(1, 1, 1, 4, 3, 4, 3, 1));
+        //then
+        Assertions.assertThat(points.getDistance())
+                .isEqualTo(6f);
+    }*/
 }
