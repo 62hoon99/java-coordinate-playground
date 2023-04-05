@@ -39,4 +39,51 @@ public class Points {
                 .filter(point -> point.isYCoordinateEqual(y))
                 .collect(Collectors.toList());
     }
+
+    public boolean isRectangle() {
+        return countCoordinatesOnSameLine() == 4;
+    }
+
+    private int countCoordinatesOnSameLine() {
+        int count = 0;
+        for (int i = 0; i < points.size(); i++) {
+            if (getCountOnSameLine(i) == 2) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private int getCountOnSameLine(int i) {
+        int countOnSameLine = 0;
+        for (int k = 0; k < points.size(); k++) {
+            if (i != k && points.get(i).isOnSameLine(points.get(k))) {
+                countOnSameLine++;
+            }
+        }
+        return countOnSameLine;
+    }
+
+    public double getArea() {
+        if (!isRectangle()) {
+            throw new IllegalArgumentException("넓이를 구할 수 없습니다.");
+        }
+        Point firstPoint = points.get(0);
+        List<Point> sameLinePoint = getSameLinePoint(firstPoint);
+        return calculateArea(firstPoint, sameLinePoint);
+    }
+
+    private List<Point> getSameLinePoint(Point firstPoint) {
+        return points.stream()
+                .filter(point -> point.isOnSameLine(firstPoint))
+                .collect(Collectors.toList());
+    }
+
+    private double calculateArea(Point firstPoint, List<Point> sameLinePoint) {
+        double area = 1;
+        for (Point point : sameLinePoint) {
+            area *= firstPoint.distanceTo(point);
+        }
+        return area;
+    }
 }

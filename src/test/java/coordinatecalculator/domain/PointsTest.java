@@ -47,4 +47,31 @@ public class PointsTest {
         Assertions.assertThat(points.getDistance())
                 .isEqualTo(6f);
     }*/
+
+    @Test
+    public void 사각형인지_아닌지() throws Exception {
+        //given
+        Points rectanglePoints = new Points(Arrays.asList(1, 1, 1, 2, 3, 2, 3, 1));
+        Points noRectanglePoints = new Points(Arrays.asList(1, 1, 1, 2, 3, 2));
+        //then
+        Assertions.assertThat(rectanglePoints.isRectangle()).isTrue();
+        Assertions.assertThat(noRectanglePoints.isRectangle()).isFalse();
+    }
+
+    @Test
+    public void 사각형_넓이_계산() throws Exception {
+        //given
+        Points rectanglePoints = new Points(Arrays.asList(1, 1, 1, 2, 3, 2, 3, 1));
+        //then
+        Assertions.assertThat(rectanglePoints.getArea()).isEqualTo(2f);
+    }
+
+    @Test
+    public void 사각형이_아닌_경우_예외발생() throws Exception {
+        //given
+        Points noRectanglePoints = new Points(Arrays.asList(1, 1, 1, 2, 3, 2));
+        //then
+        Assertions.assertThatThrownBy(noRectanglePoints::getArea)
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }

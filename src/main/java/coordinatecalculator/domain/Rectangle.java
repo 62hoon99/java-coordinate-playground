@@ -5,10 +5,7 @@ import java.util.stream.Collectors;
 
 public class Rectangle {
 
-    private static final String NO_RECTANGLE_MESSAGE = "직사각형이 아닙니다.";
-
-    public static double calculateArea(List<Point> points) {
-        validateRectangle(points);
+/*    public static double calculateArea(List<Point> points) {
         return getArea(points);
     }
 
@@ -30,31 +27,5 @@ public class Rectangle {
             area *= firstPoint.distanceTo(point);
         }
         return area;
-    }
-
-    private static void validateRectangle(List<Point> points) {
-        if (countCoordinatesOnSameLine(points) != 4) {
-            throw new IllegalArgumentException(NO_RECTANGLE_MESSAGE);
-        }
-    }
-
-    private static int countCoordinatesOnSameLine(List<Point> points) {
-        int count = 0;
-        for (int i = 0; i < points.size(); i++) {
-            if (getCountOnSameLine(points, i) == 2) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    private static int getCountOnSameLine(List<Point> points, int i) {
-        int countOnSameLine = 0;
-        for (int k = 0; k < points.size(); k++) {
-            if (i != k && points.get(i).isOnSameLine(points.get(k))) {
-                countOnSameLine++;
-            }
-        }
-        return countOnSameLine;
-    }
+    }*/
 }
