@@ -21,4 +21,18 @@ public class RectangleTest {
         Assertions.assertThat(Rectangle.calculateArea(points))
                 .isEqualTo(2f);
     }
+
+    @Test
+    public void 직사각형이_아니면_예외발생() throws Exception {
+        //given
+        List<Point> points = Arrays.asList(
+                new Point(1, 1),
+                new Point(1, 2),
+                new Point(3, 3),
+                new Point(3, 2)
+        );
+        //then
+        Assertions.assertThatThrownBy(() -> Rectangle.calculateArea(points))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }

@@ -1,12 +1,12 @@
 package coordinatecalculator.domain;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Rectangle {
+
+    private static final String NO_RECTANGLE_MESSAGE = "직사각형이 아닙니다.";
+
     public static double calculateArea(List<Point> points) {
         validateRectangle(points);
         return getArea(points);
@@ -34,7 +34,7 @@ public class Rectangle {
 
     private static void validateRectangle(List<Point> points) {
         if (countCoordinatesOnSameLine(points) != 4) {
-            throw new IllegalArgumentException("직사각형이 아닙니다.");
+            throw new IllegalArgumentException(NO_RECTANGLE_MESSAGE);
         }
     }
 
