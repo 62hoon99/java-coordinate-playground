@@ -1,7 +1,9 @@
 package coordinatecalculator.domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Points {
@@ -40,7 +42,7 @@ public class Points {
                 .collect(Collectors.toList());
     }
 
-    public boolean isRectangle() {
+    private boolean isRectangle() {
         return countCoordinatesOnSameLine() == 4;
     }
 
@@ -85,5 +87,20 @@ public class Points {
             area *= firstPoint.distanceTo(point);
         }
         return area;
+    }
+
+    public Shape identifyShape() {
+        if (isStraight()) {
+            return Shape.STRAIGHT;
+        }
+        if (isRectangle()) {
+            return Shape.RECTANGLE;
+        }
+        return Shape.ETC;
+    }
+
+    private boolean isStraight() {
+        Set<Point> pointSet = new HashSet<>(points);
+        return pointSet.size() == 2;
     }
 }

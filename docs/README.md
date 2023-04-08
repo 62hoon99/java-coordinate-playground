@@ -25,4 +25,4 @@
 - [x] 직사각형인 경우 넓이를 계산하는 기능.
 - [x] 숫자 홀수개 검증 기능
 - [x] y값과 일치하는 Point list 반환
-- [ ] point가 2개이면 직선(STRAIGHT), 4개이면 사각형(RECTANGLE)을 반환
+- [x] point가 2개이면 직선(STRAIGHT), 4개이면 사각형(RECTANGLE)을 반환

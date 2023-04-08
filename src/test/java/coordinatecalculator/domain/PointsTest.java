@@ -38,25 +38,6 @@ public class PointsTest {
         //then
         Assertions.assertThat(hasYPoints.size()).isEqualTo(2);
     }
-    /*
-    @Test
-    public void 좌표값_네_개_입력한_경우_넓이_계산() throws Exception {
-        //given
-        Points points = new Points(Arrays.asList(1, 1, 1, 4, 3, 4, 3, 1));
-        //then
-        Assertions.assertThat(points.getDistance())
-                .isEqualTo(6f);
-    }*/
-
-    @Test
-    public void 사각형인지_아닌지() throws Exception {
-        //given
-        Points rectanglePoints = new Points(Arrays.asList(1, 1, 1, 2, 3, 2, 3, 1));
-        Points noRectanglePoints = new Points(Arrays.asList(1, 1, 1, 2, 3, 2));
-        //then
-        Assertions.assertThat(rectanglePoints.isRectangle()).isTrue();
-        Assertions.assertThat(noRectanglePoints.isRectangle()).isFalse();
-    }
 
     @Test
     public void 사각형_넓이_계산() throws Exception {
@@ -73,5 +54,21 @@ public class PointsTest {
         //then
         Assertions.assertThatThrownBy(noRectanglePoints::getArea)
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    public void shape을_반환하는_기능() throws Exception {
+        //given
+        Points straight = new Points(Arrays.asList(1, 1, 3, 3));
+        Points rectangle = new Points(Arrays.asList(1, 1, 1, 2, 3, 2, 3, 1));
+        Points etc = new Points(Arrays.asList(1, 2, 3, 1, 3, 2));
+        //when
+        Shape straightShape = straight.identifyShape();
+        Shape rectangleShape = rectangle.identifyShape();
+        Shape etcShape = etc.identifyShape();
+        //then
+        Assertions.assertThat(straightShape).isEqualTo(Shape.STRAIGHT);
+        Assertions.assertThat(rectangleShape).isEqualTo(Shape.RECTANGLE);
+        Assertions.assertThat(etcShape).isEqualTo(Shape.ETC);
     }
 }
