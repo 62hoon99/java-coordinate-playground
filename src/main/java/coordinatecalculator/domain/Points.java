@@ -30,10 +30,10 @@ public class Points {
     }
 
     public double getDistance() {
-        if (points.size() == 2) {
-            return points.get(0).distanceTo(points.get(1));
+        if (!isStraight()) {
+            throw new IllegalArgumentException("길이를 구할 수 없습니다.");
         }
-        return -1;
+        return points.get(0).distanceTo(points.get(1));
     }
 
     public List<Point> hasYPoints(int y) {
