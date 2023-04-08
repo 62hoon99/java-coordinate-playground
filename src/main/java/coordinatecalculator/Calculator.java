@@ -14,7 +14,7 @@ public class Calculator {
             List<Integer> numbers = ValueExtractor.extractNumbers(InputView.point());
             Points points = new Points(numbers);
             OutputView.printAxis(points);
-            OutputView.printDistance(points.getDistance());
+            OutputView.printDistanceOrArea(points);
         } catch (IllegalArgumentException e) {
             OutputView.printException(e.getMessage());
             start();

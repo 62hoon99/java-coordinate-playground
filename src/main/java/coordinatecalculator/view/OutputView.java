@@ -2,6 +2,7 @@ package coordinatecalculator.view;
 
 import coordinatecalculator.domain.Points;
 import coordinatecalculator.domain.Point;
+import coordinatecalculator.domain.Shape;
 
 import java.util.List;
 
@@ -15,9 +16,12 @@ public class OutputView {
         printXAxis();
     }
 
-    public static void printDistance(double distance) {
-        if (distance != -1f) {
-            System.out.printf("두 점 사이 거리는 %f\n", distance);
+    public static void printDistanceOrArea(Points points) {
+        if (Shape.RECTANGLE.equals(points.identifyShape())) {
+            System.out.println("사각형 넓이는 " + points.getArea());
+        }
+        if (Shape.STRAIGHT.equals(points.identifyShape())) {
+            System.out.println("두 점 사이 거리는 " + points.getDistance());
         }
     }
 
