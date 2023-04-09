@@ -2,15 +2,15 @@ package coordinate.model;
 
 public class Point {
 
-    private final int x;
-    private final int y;
+    private final Coordinate x;
+    private final Coordinate y;
 
     public Point(int x, int y) {
-        this.x = x;
-        this.y = y;
+        this.x = new Coordinate(x);
+        this.y = new Coordinate(y);
     }
 
     public double calculateDistance(Point other) {
-        return Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2));
+        return Math.sqrt(Math.pow(this.x.minus(other.x), 2) + Math.pow(this.y.minus(other.y), 2));
     }
 }

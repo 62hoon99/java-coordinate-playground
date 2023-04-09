@@ -4,6 +4,9 @@ import org.assertj.core.api.Assertions;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 public class PointTest {
 
     @Test
@@ -14,6 +17,22 @@ public class PointTest {
         //when
         double distance = point1.calculateDistance(point2);
         //then
-        Assertions.assertThat(distance).isEqualTo(6.403124, Offset.offset(0.00099));
+        assertThat(distance).isEqualTo(6.403124, Offset.offset(0.00099));
+    }
+
+    @Test
+    public void 좌표값이_24_0_사이가_아닌_경우_예외() throws Exception {
+        assertThrows(IllegalArgumentException.class, () ->
+                new Point(25, 1)
+        );
+        assertThrows(IllegalArgumentException.class, () ->
+                new Point(0, 25)
+        );
+        assertThrows(IllegalArgumentException.class, () ->
+                new Point(-1, 24)
+        );
+        assertThrows(IllegalArgumentException.class, () ->
+                new Point(24, -1)
+        );
     }
 }
