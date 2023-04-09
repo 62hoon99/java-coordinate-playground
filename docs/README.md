@@ -7,7 +7,7 @@
 - [x] 두 점 사이의 거리를 계산한다.
 
 ## FigureFactory
-- [ ] 입력된 좌표에 따라 맞는 Figure를 반환한다.
+- [x] 입력된 좌표에 따라 맞는 Figure를 반환한다.
 
 ## InputView
 - [ ] 좌표를 입력받아서 Points를 반환한다.
