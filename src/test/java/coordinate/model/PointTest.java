@@ -35,4 +35,13 @@ public class PointTest {
                 new Point(24, -1)
         );
     }
+
+    @Test
+    public void x_y_가_같으면_같은_클래스() throws Exception {
+        //given
+        Point point1 = new Point(1, 1);
+        Point point2 = new Point(1, 1);
+        //then
+        Assertions.assertThat(point1.equals(point2)).isTrue();
+    }
 }
