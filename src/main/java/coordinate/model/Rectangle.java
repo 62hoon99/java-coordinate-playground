@@ -53,6 +53,7 @@ public class Rectangle extends AbstractFigure {
 
     @Override
     public boolean hasPoint(int x, int y) {
-        return false;
+        return points.stream()
+                .anyMatch(point -> point.equals(new Point(x, y)));
     }
 }

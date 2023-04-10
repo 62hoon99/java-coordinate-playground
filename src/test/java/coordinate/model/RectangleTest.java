@@ -1,14 +1,13 @@
 package coordinate.model;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RectangleTest {
 
@@ -55,5 +54,15 @@ public class RectangleTest {
         double area = rectangle.getArea();
         //then
         assertThat(area).isEqualTo(12);
+    }
+
+    @Test
+    public void point를_갖고있는지_확인() throws Exception {
+        //when
+        boolean trueAnswer = rectangle.hasPoint(1, 3);
+        boolean falseAnswer = rectangle.hasPoint(1, 4);
+        //then
+        assertThat(trueAnswer).isTrue();
+        assertThat(falseAnswer).isFalse();
     }
 }
