@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RectangleTest {
@@ -30,7 +31,7 @@ public class RectangleTest {
         //given
         Rectangle rectangle = new Rectangle(points);
         //then
-        Assertions.assertThat(rectangle).isEqualTo(this.rectangle);
+        assertThat(rectangle).isEqualTo(this.rectangle);
     }
 
     @Test
@@ -46,5 +47,13 @@ public class RectangleTest {
         assertThrows(IllegalArgumentException.class, () -> {
             new Rectangle(strangePoints);
         });
+    }
+
+    @Test
+    public void 직사각형_넓이_계산() throws Exception {
+        //when
+        double area = rectangle.getArea();
+        //then
+        assertThat(area).isEqualTo(12);
     }
 }

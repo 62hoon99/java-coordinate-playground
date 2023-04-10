@@ -1,5 +1,6 @@
 package coordinate.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -40,7 +41,14 @@ public class Rectangle extends AbstractFigure {
 
     @Override
     public double getArea() {
-        return 0;
+        int width = getLength(getXCoordinate(this.points));
+        int height = getLength(getYCoordinate(this.points));
+        return width * height;
+    }
+
+    private int getLength(Set<Coordinate> points) {
+        List<Coordinate> coordinates = new ArrayList<>(points);
+        return Math.abs(coordinates.get(0).minus(coordinates.get(1)));
     }
 
     @Override
